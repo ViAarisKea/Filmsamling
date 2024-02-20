@@ -10,17 +10,17 @@ public class Main {
 
 
         System.out.println("Title of the movie?");
-        String title = scanner.next();
+        String title = scanner.nextLine();
         System.out.println("Movie director?");
-        String director = scanner.next();
+        String director = scanner.nextLine();
         System.out.println("Year of creation?");
         int year = scanner.nextInt();
-        System.out.println("Is it coloured?");
+        System.out.println("Is it coloured? Answer true if it's colored and false if it's black&white");
         boolean isColoured = scanner.nextBoolean();
         System.out.println("Length in minutes?");
         int length = scanner.nextInt();
         System.out.println("Genre?");
-        String genre = scanner.next();
+        String genre = scanner.nextLine();
 
         System.out.println("Adding new movie to the collection...");
 

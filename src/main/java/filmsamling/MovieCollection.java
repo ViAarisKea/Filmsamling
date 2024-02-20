@@ -16,5 +16,6 @@ public class MovieCollection {
             String genre){
         Movie movieToAdd = new Movie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
         movieCollection.add(movieToAdd);
+        System.out.printf("The movie \" %s \" is added to the collection", movieCollection.get(movieCollection.size()-1).getTitle());
     }
 }
