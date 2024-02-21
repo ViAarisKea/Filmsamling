@@ -9,9 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
 
-        System.out.println("Let's add some movies to the collection");
+        showMenu();
         scanAndCreateMovie();
 
+    }
+
+    public static void showMenu(){
+        System.out.println("Welcome to my movie collection!\n 1. Add a movie\n 2. Exit");
     }
 
     public static void scanAndCreateMovie(){
