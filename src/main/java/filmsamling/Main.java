@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static MovieCollection movieCollection = new MovieCollection();
+    private static Controller controller = new Controller();
 
     public static void main(String[] args) {
         scanAndCreateMovie();
@@ -40,7 +40,7 @@ public class Main {
 
 
                 System.out.println("Adding new movie to the collection...");
-                movieCollection.addMovie(title, director, year, isColoured, length, genre);
+                controller.addMovieToMovieCollection(title, director, year, isColoured, length, genre);
             }
 
         }
