@@ -18,6 +18,7 @@ public class Main {
     public static void scanAndCreateMovie() {
         Scanner scanner = new Scanner(System.in);
 
+
         while (true) {
             showMenu();
             String key = scanner.nextLine();
@@ -43,6 +44,12 @@ public class Main {
                 controller.addMovieToMovieCollection(title, director, year, isColoured, length, genre);
             }
 
+        }
+    }
+
+    public static void printAllMovies(){
+        for(Movie movie : controller.findAllMovieFromMovieCollection()){
+            System.out.println(movie.toString());
         }
     }
 }

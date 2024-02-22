@@ -2,6 +2,26 @@ package filmsamling;
 
 public class Movie {
 
+    @Override
+    public String toString() {
+        String string =
+                "Title:" + title + "\n" +
+                "Director:" + director + "\n" +
+                "Year created:" + yearCreated + "\n" +
+                        "Coloured movie:";
+        if(isInColor){
+            string+= "yes\n";
+        }else{
+            string+="no\n";
+        }
+
+        string +=
+                "Length(min):" + lengthInMinutes + "\n" +
+                "Genre:" + genre + '\n';
+
+        return string;
+    }
+
     private String title;
     private String director;
     private int yearCreated;

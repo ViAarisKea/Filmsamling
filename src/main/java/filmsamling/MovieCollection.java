@@ -20,4 +20,8 @@ public class MovieCollection {
 
         System.out.printf("There is now %d movies in the collection\n", movieCollection.size());
     }
+
+    public ArrayList<Movie> findAllMovies(){
+        return movieCollection;
+    }
 }
