@@ -1,5 +1,6 @@
 package filmsamling;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +17,7 @@ public class Main {
                 " 1. Add a movie\n" +
                 " 2. View the whole movie collection\n" +
                 " 3. Search a movie by title\n" +
-                " 4. Exit" +
+                " 4. Exit\n" +
                 "=====================\n");
     }
 
@@ -36,8 +37,10 @@ public class Main {
                 String director = scanner.nextLine();
                 System.out.println("Year of creation?");
                 int year = scanner.nextInt();
-                System.out.println("Is it coloured? Answer true if it's colored and false if it's black&white");
-                boolean isColoured = scanner.nextBoolean();
+                System.out.println("Is it coloured? yes/no");
+                boolean isColoured = false;
+                String colored = scanner.next();
+                if(colored.equalsIgnoreCase("yes")) isColoured = true;
                 System.out.println("Length in minutes?");
                 int length = scanner.nextInt();
                 scanner.nextLine();
@@ -52,7 +55,7 @@ public class Main {
             } else if(key.equals("3")){
                 System.out.println("enter title to search:");
                 String title = scanner.nextLine();
-                findMovieByTitle(title);
+                findMoviesByTitle(title);
             }
 
         }
@@ -64,12 +67,14 @@ public class Main {
         }
     }
 
-    public static void findMovieByTitle(String title){
-        Movie foundMovie = controller.findMovieByTitle(title);
-        if(foundMovie != null){
-            System.out.println(foundMovie);
+    public static void findMoviesByTitle(String title){
+        ArrayList<Movie> foundMovies = controller.findMovieByTitle(title);
+        if(!foundMovies.isEmpty()){
+            for(Movie movie : foundMovies){
+                System.out.println(movie);
+            }
         }else{
-            System.out.printf("Movie with title \"%s\" is not found\n", title);
+            System.out.printf("Movies with title \"%s\" is not found\n", title);
         }
     }
 }

@@ -29,19 +29,16 @@ public class MovieCollection {
         return movieCollection.get(index);
     }
 
-    public Movie findMovieByTitle(String title){
+    public ArrayList<Movie> findMovieByTitle(String title){
+
+        ArrayList<Movie> listOfFoundMovies = new ArrayList<>();
 
         for(Movie movie : movieCollection){
             if(movie.getTitle().toUpperCase().contains(title.toUpperCase())){
-                return movie;
+                listOfFoundMovies.add(movie);
             }
         }
-        return null;
+        return listOfFoundMovies;
 
-//        for(int i = 0; i < movieCollection.size(); i++){
-//            if(movieCollection.get(i).getTitle().contains(title)){
-//                System.out.println(movieCollection.get(i));
-//            }
-//        }
     }
 }

@@ -19,11 +19,8 @@ public class Controller {
         return movieCollection.findAMovie(index);
     }
 
-    public Movie findMovieByTitle(String title){
+    public ArrayList<Movie> findMovieByTitle(String title){
         return movieCollection.findMovieByTitle(title);
     }
-
-
-
 
 }
