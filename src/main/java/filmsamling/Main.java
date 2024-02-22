@@ -11,11 +11,13 @@ public class Main {
     }
 
     public static void showMenu() {
-        System.out.println("Welcome to my movie collection!\n" +
+        System.out.println("=====================\n" +
+                "Welcome to my movie collection!\n" +
                 " 1. Add a movie\n" +
                 " 2. View the whole movie collection\n" +
                 " 3. Search a movie by title\n" +
-                " 4. Exit");
+                " 4. Exit" +
+                "=====================\n");
     }
 
     public static void processUserActions() {
@@ -48,7 +50,9 @@ public class Main {
             } else if (key.equals("2")) {
                 printAllMovies();
             } else if(key.equals("3")){
-
+                System.out.println("enter title to search:");
+                String title = scanner.nextLine();
+                findMovieByTitle(title);
             }
 
         }
@@ -57,6 +61,15 @@ public class Main {
     public static void printAllMovies() {
         for (Movie movie : controller.findAllMovieFromMovieCollection()) {
             System.out.println(movie.toString());
+        }
+    }
+
+    public static void findMovieByTitle(String title){
+        Movie foundMovie = controller.findMovieByTitle(title);
+        if(foundMovie != null){
+            System.out.println(foundMovie);
+        }else{
+            System.out.printf("Movie with title \"%s\" is not found\n", title);
         }
     }
 }

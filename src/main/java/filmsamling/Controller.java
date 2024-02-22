@@ -15,6 +15,14 @@ public class Controller {
         return movieCollection.findAllMovies();
     }
 
+    public Movie findMovieByIndex(int index){
+        return movieCollection.findAMovie(index);
+    }
+
+    public Movie findMovieByTitle(String title){
+        return movieCollection.findMovieByTitle(title);
+    }
+
 
 
 

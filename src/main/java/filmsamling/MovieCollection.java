@@ -32,10 +32,16 @@ public class MovieCollection {
     public Movie findMovieByTitle(String title){
 
         for(Movie movie : movieCollection){
-            if(movie.getTitle().contains(title)){
+            if(movie.getTitle().toUpperCase().contains(title.toUpperCase())){
                 return movie;
             }
         }
         return null;
+
+//        for(int i = 0; i < movieCollection.size(); i++){
+//            if(movieCollection.get(i).getTitle().contains(title)){
+//                System.out.println(movieCollection.get(i));
+//            }
+//        }
     }
 }
