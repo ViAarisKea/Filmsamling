@@ -24,4 +24,18 @@ public class MovieCollection {
     public ArrayList<Movie> findAllMovies(){
         return movieCollection;
     }
+
+    public Movie findAMovie(int index){
+        return movieCollection.get(index);
+    }
+
+    public Movie findMovieByTitle(String title){
+
+        for(Movie movie : movieCollection){
+            if(movie.getTitle().contains(title)){
+                return movie;
+            }
+        }
+        return null;
+    }
 }

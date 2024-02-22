@@ -14,7 +14,8 @@ public class Main {
         System.out.println("Welcome to my movie collection!\n" +
                 " 1. Add a movie\n" +
                 " 2. View the whole movie collection\n" +
-                " 3. Exit");
+                " 3. Search a movie by title\n" +
+                " 4. Exit");
     }
 
     public static void processUserActions() {
@@ -24,7 +25,7 @@ public class Main {
         while (true) {
             showMenu();
             String key = scanner.nextLine();
-            if (key.equals("3")) {
+            if (key.equals("4")) {
                 break;
             } else if (key.equals("1")) {
                 System.out.println("Title of the movie?");
@@ -46,6 +47,8 @@ public class Main {
                 controller.addMovieToMovieCollection(title, director, year, isColoured, length, genre);
             } else if (key.equals("2")) {
                 printAllMovies();
+            } else if(key.equals("3")){
+
             }
 
         }
