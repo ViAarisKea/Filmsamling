@@ -22,8 +22,8 @@ public class Main {
     }
 
     public static void processUserActions() {
-        Scanner scanner = new Scanner(System.in);
 
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             showMenu();
@@ -47,9 +47,9 @@ public class Main {
                 System.out.println("Genre?");
                 String genre = scanner.nextLine();
 
-
                 System.out.println("Adding new movie to the collection...");
                 controller.addMovieToMovieCollection(title, director, year, isColoured, length, genre);
+
             } else if (key.equals("2")) {
                 printAllMovies();
             } else if(key.equals("3")){
@@ -70,6 +70,7 @@ public class Main {
     public static void findMoviesByTitle(String title){
         ArrayList<Movie> foundMovies = controller.findMovieByTitle(title);
         if(!foundMovies.isEmpty()){
+            System.out.printf("There are found %d movies by searching \"%s\" \n", foundMovies.size(), title);
             for(Movie movie : foundMovies){
                 System.out.println(movie);
             }
