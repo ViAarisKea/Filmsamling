@@ -15,12 +15,15 @@ public class Controller {
         return movieCollection.findAllMovies();
     }
 
-    public Movie findMovieByIndex(int index){
-        return movieCollection.findAMovie(index);
+
+    public ArrayList<Movie> findAllMoviesByTitle(String title){
+        return movieCollection.findAllMovieByTitle(title);
     }
 
-    public ArrayList<Movie> findMovieByTitle(String title){
-        return movieCollection.findMovieByTitle(title);
+
+    public Movie editMovie(String oldTitle, String newTitle, String director,
+                          int year, boolean isColoured, int length, String genre) {
+        return movieCollection.editMovie(oldTitle, newTitle, director, year, isColoured, length, genre);
     }
 
 }

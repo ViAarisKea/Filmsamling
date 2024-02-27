@@ -20,11 +20,27 @@ public class MovieCollection {
         return movieCollection;
     }
 
-    public Movie findAMovie(int index){
-        return movieCollection.get(index);
+
+    public Movie editMovie(String oldTitle, String newTitle, String director, int yearCreated,
+                           boolean isInColor, int lengthInMinutes, String genre){
+
+        Movie movieToEdit = findMovieByTitle(oldTitle);
+        if(movieToEdit != null){
+
+            movieToEdit.setTitle(newTitle);
+            movieToEdit.setDirector(director);
+            movieToEdit.setYearCreated(yearCreated);
+            movieToEdit.setInColor(isInColor);
+            movieToEdit.setLengthInMinutes(lengthInMinutes);
+            movieToEdit.setGenre(genre);
+
+            movieCollection.set(movieCollection.indexOf(movieToEdit), movieToEdit);
+            return movieToEdit;
+        }
+        return null;
     }
 
-    public ArrayList<Movie> findMovieByTitle(String title){
+    public ArrayList<Movie> findAllMovieByTitle(String title){
 
         ArrayList<Movie> listOfFoundMovies = new ArrayList<>();
 
@@ -33,7 +49,22 @@ public class MovieCollection {
                 listOfFoundMovies.add(movie);
             }
         }
-        return listOfFoundMovies;
 
+        if(!listOfFoundMovies.isEmpty()){
+            return listOfFoundMovies;
+        }else {
+            System.out.printf("Movies with title \"%s\" is not found\n", title);
+            return null;
+        }
+    }
+
+    public Movie findMovieByTitle(String title){
+        for(Movie movie : movieCollection){
+            if(movie.getTitle().toUpperCase().contains(title.toUpperCase())){
+                return  movie;
+            }
+        }
+        System.out.printf("Movie with title \"%s\" is not found\n", title);
+        return null;
     }
 }
