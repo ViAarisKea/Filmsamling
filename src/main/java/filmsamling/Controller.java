@@ -17,7 +17,7 @@ public class Controller {
 
 
     public ArrayList<Movie> findAllMoviesByTitle(String title){
-        return movieCollection.findAllMovieByTitle(title);
+        return movieCollection.findAllMoviesByTitle(title);
     }
 
 

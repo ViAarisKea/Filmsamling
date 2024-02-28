@@ -40,7 +40,7 @@ public class MovieCollection {
         return null;
     }
 
-    public ArrayList<Movie> findAllMovieByTitle(String title){
+    public ArrayList<Movie> findAllMoviesByTitle(String title){
 
         ArrayList<Movie> listOfFoundMovies = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class MovieCollection {
         if(!listOfFoundMovies.isEmpty()){
             return listOfFoundMovies;
         }else {
-            System.out.printf("Movies with title \"%s\" is not found\n", title);
+            System.out.printf("Movies with title \"%s\" are not found\n", title);
             return null;
         }
     }
