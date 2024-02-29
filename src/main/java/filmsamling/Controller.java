@@ -30,4 +30,7 @@ public class Controller {
         return movieCollection.editMovie(oldTitle, newTitle, director, year, isColoured, length, genre);
     }
 
+    public void deleteMovie(String title) {
+        movieCollection.deleteMovie(title);
+    }
 }

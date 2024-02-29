@@ -69,4 +69,14 @@ public class MovieCollection {
     public boolean doesMovieExist(String title) {
         return findMovieByTitle(title) != null;
     }
+
+    public void deleteMovie(String title) {
+        Movie movieToDelete = findMovieByTitle(title);
+        if(movieToDelete != null){
+            movieCollection.remove(movieToDelete);
+        } else{
+            System.out.println("Movie with this title does not exist");
+        }
+
+    }
 }

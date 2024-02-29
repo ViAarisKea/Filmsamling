@@ -19,7 +19,8 @@ public class UserInterface {
                 " 2. View the whole movie collection\n" +
                 " 3. Search a movie by title\n" +
                 " 4. Edit movie details\n" +
-                " 5. Exit\n" +
+                " 5. Remove a movie from the collection\n" +
+                " 6. Exit\n" +
                 "=====================\n");
     }
 
@@ -30,7 +31,7 @@ public class UserInterface {
         while (true) {
             showMenu();
             String key = scanner.nextLine();
-            if (key.equals("5")) {
+            if (key.equals("6")) {
                 break;
             } else if (key.equals("1")) {
                 addMovie(scanner);
@@ -40,6 +41,8 @@ public class UserInterface {
                 findMoviesByTitle(scanner);
             } else if (key.equals("4")) {
                 editMovie(scanner);
+            } else if (key.equals("5")){
+                deleteMovie(scanner);
             }
         }
     }
@@ -139,12 +142,9 @@ public class UserInterface {
         System.out.println("Genre?");
         String genre = scanner.nextLine();
 
-
         System.out.println("Adding new movie to the collection...");
 
         controller.addMovieToMovieCollection(title, director, year, isColoured, length, genre);
-
-
     }
 
     public void findMoviesByTitle(Scanner scanner) {
@@ -157,5 +157,11 @@ public class UserInterface {
             System.out.println(movie);
         }
 
+    }
+
+    public void deleteMovie(Scanner scanner){
+        System.out.println("Insert title of a movie to delete: ");
+        String title = scanner.nextLine();
+        controller.deleteMovie(title);
     }
 }
