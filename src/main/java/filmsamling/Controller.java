@@ -20,6 +20,10 @@ public class Controller {
         return movieCollection.findAllMoviesByTitle(title);
     }
 
+    public boolean doesMovieExist(String title){
+        return movieCollection.doesMovieExist(title);
+    }
+
 
     public Movie editMovie(String oldTitle, String newTitle, String director,
                           int year, boolean isColoured, int length, String genre) {

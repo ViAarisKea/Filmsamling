@@ -8,63 +8,65 @@ public class MovieCollection {
 
 
     public void addMovie(String title, String director, int yearCreated, boolean isInColor, int lengthInMinutes,
-            String genre){
+                         String genre) {
         Movie movieToAdd = new Movie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
         movieCollection.add(movieToAdd);
-        System.out.printf("The movie \" %s \" is added to the collection\n", movieCollection.get(movieCollection.size()-1).getTitle());
+        System.out.printf("The movie \" %s \" is added to the collection\n", movieCollection.get(movieCollection.size() - 1).getTitle());
 
         System.out.printf("There is now %d movies in the collection\n", movieCollection.size());
     }
 
-    public ArrayList<Movie> findAllMovies(){
+    public ArrayList<Movie> findAllMovies() {
         return movieCollection;
     }
 
 
     public Movie editMovie(String oldTitle, String newTitle, String director, int yearCreated,
-                           boolean isInColor, int lengthInMinutes, String genre){
+                           boolean isInColor, int lengthInMinutes, String genre) {
 
         Movie movieToEdit = findMovieByTitle(oldTitle);
-        if(movieToEdit != null){
+        movieToEdit.setTitle(newTitle);
+        movieToEdit.setDirector(director);
+        movieToEdit.setYearCreated(yearCreated);
+        movieToEdit.setInColor(isInColor);
+        movieToEdit.setLengthInMinutes(lengthInMinutes);
+        movieToEdit.setGenre(genre);
 
-            movieToEdit.setTitle(newTitle);
-            movieToEdit.setDirector(director);
-            movieToEdit.setYearCreated(yearCreated);
-            movieToEdit.setInColor(isInColor);
-            movieToEdit.setLengthInMinutes(lengthInMinutes);
-            movieToEdit.setGenre(genre);
+        movieCollection.set(movieCollection.indexOf(movieToEdit), movieToEdit);
+        return movieToEdit;
 
-            movieCollection.set(movieCollection.indexOf(movieToEdit), movieToEdit);
-            return movieToEdit;
-        }
-        return null;
     }
 
-    public ArrayList<Movie> findAllMoviesByTitle(String title){
+    public ArrayList<Movie> findAllMoviesByTitle(String title) {
 
         ArrayList<Movie> listOfFoundMovies = new ArrayList<>();
 
-        for(Movie movie : movieCollection){
-            if(movie.getTitle().toUpperCase().contains(title.toUpperCase())){
+        for (Movie movie : movieCollection) {
+            if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) {
                 listOfFoundMovies.add(movie);
             }
         }
 
-        if(!listOfFoundMovies.isEmpty()){
+        if (!listOfFoundMovies.isEmpty()) {
             return listOfFoundMovies;
-        }else {
+        } else {
             System.out.printf("Movies with title \"%s\" are not found\n", title);
             return null;
         }
     }
 
-    public Movie findMovieByTitle(String title){
-        for(Movie movie : movieCollection){
-            if(movie.getTitle().toUpperCase().contains(title.toUpperCase())){
-                return  movie;
+    public Movie findMovieByTitle(String title) {
+
+        for (Movie movie : movieCollection) {
+            if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) {
+                return movie;
             }
         }
-        System.out.printf("Movie with title \"%s\" is not found\n", title);
+        //System.out.printf("Movie with title \"%s\" is not found\n", title);
         return null;
+    }
+
+    public boolean doesMovieExist(String title) {
+        return findMovieByTitle(title) != null;
     }
 }
