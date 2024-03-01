@@ -62,13 +62,9 @@ public class MovieCollection {
                 return movie;
             }
         }
-        //System.out.printf("Movie with title \"%s\" is not found\n", title);
         return null;
     }
 
-    public boolean doesMovieExist(String title) {
-        return findMovieByTitle(title) != null;
-    }
 
     public void deleteMovie(String title) {
         Movie movieToDelete = findMovieByTitle(title);
